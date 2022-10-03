@@ -32,6 +32,7 @@ func init() {
 type codec struct{}
 
 func (codec) Marshal(v interface{}) ([]byte, error) {
+	return json.Marshal(v)
 	switch m := v.(type) {
 	case json.Marshaler:
 		return m.MarshalJSON()
